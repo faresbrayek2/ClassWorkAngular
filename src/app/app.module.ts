@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListCategoriesComponent } from './components/list-categories/list-categories.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ListCategoriesComponent } from './components/list-categories/list-categ
     FooterComponent,
     HomeComponent,
     ListCategoriesComponent,
+    FilterPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
