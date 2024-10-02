@@ -10,6 +10,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ListCategoriesComponent } from './components/list-categories/list-categories.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { HighlightDirective } from './Highlight/highlight.directive';
+import { ProductsComponentComponent } from './features/product/products-component/products-component.component';
+import { SearchPricePipe } from './pipes/search-price.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { HighlightDirective } from './Highlight/highlight.directive';
     ListCategoriesComponent,
     FilterPipe,
     HighlightDirective,
+    ProductsComponentComponent,
+    SearchPricePipe,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
