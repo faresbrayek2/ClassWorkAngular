@@ -15,6 +15,8 @@ import { ProductsComponentComponent } from './features/product/products-componen
 import { FilterPipe } from './pipes/filter.pipe';
 import { SearchPricePipe } from './pipes/search-price.pipe';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { MainUserComponent } from './main-user/main-user.component';
+import { FormUserComponent } from './form-user/form-user.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -22,6 +24,8 @@ const routes: Routes = [
   { path: 'products', component: ProductsComponentComponent },
   { path: 'products/:id', component: ProductsComponentComponent },
   { path: 'categories', component: ListCategoriesComponent },
+
+  { path: 'users', component: MainUserComponent }, // <-- Add route for MainUserComponent
   {
     path: '**',
     component: NotfoundComponent,
@@ -38,6 +42,8 @@ const routes: Routes = [
     HighlightDirective,
     ProductsComponentComponent,
     SearchPricePipe,
+    MainUserComponent,
+    FormUserComponent,
   ],
   imports: [
     BrowserModule,

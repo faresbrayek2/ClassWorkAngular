@@ -1,0 +1,93 @@
+<!-- src/app/form-user/form-user.component.html -->
+<form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+  <!-- First Name -->
+  <div>
+    <label for="firstName">First Name</label>
+    <input
+      type="text"
+      id="firstName"
+      name="firstName"
+      required
+      minlength="3"
+      pattern="[a-zA-Z]*"
+      [(ngModel)]="user.firstName"
+      #firstName="ngModel"
+    />
+    <div *ngIf="firstName.invalid && firstName.touched">
+      <small *ngIf="firstName.errors?.['required']">First Name is required</small>
+      <small *ngIf="firstName.errors?.['minlength']">First Name must be at least 3 characters</small>
+      <small *ngIf="firstName.errors?.['pattern']">Only letters are allowed</small>
+    </div>
+  </div>
+
+  <!-- Last Name -->
+  <div>
+    <label for="lastName">Last Name</label>
+    <input
+      type="text"
+      id="lastName"
+      name="lastName"
+      required
+      minlength="3"
+      pattern="[a-zA-Z]*"
+      [(ngModel)]="user.lastName"
+      #lastName="ngModel"
+    />
+    <div *ngIf="lastName.invalid && lastName.touched">
+      <small *ngIf="lastName.errors?.['required']">Last Name is required</small>
+      <small *ngIf="lastName.errors?.['minlength']">Last Name must be at least 3 characters</small>
+      <small *ngIf="lastName.errors?.['pattern']">Only letters are allowed</small>
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div>
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      pattern="^[a-zA-Z0-9._-]+@gmail.com"
+      [(ngModel)]="user.email"
+      #email="ngModel"
+    />
+    <div *ngIf="email.invalid && email.touched">
+      <small *ngIf="email.errors?.['required']">Email is required</small>
+      <small *ngIf="email.errors?.['pattern']">Email must be a valid Gmail address (ends with @gmail.com)</small>
+    </div>
+  </div>
+
+  <!-- Category (Select) -->
+  <div>
+    <label for="category">Category</label>
+    <select id="category" name="category" [(ngModel)]="user.category" required>
+      <option value="Customer">Customer</option>
+    </select>
+    <div *ngIf="user.category !== 'Customer'">
+      <small>Category must be 'Customer'</small>
+    </div>
+  </div>
+
+  <!-- Password -->
+  <div>
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      required
+      pattern="^[a-zA-Z0-9]{8,}$"
+      [(ngModel)]="user.password"
+      #password="ngModel"
+    />
+<!-- src/app/form-user/form-user.component.html -->
+<div *ngIf="password.invalid && password.touched">
+  <small *ngIf="password.errors?.['required']">Password is required</small>
+  <small *ngIf="password.errors?.['pattern']">Password must contain at least 8 characters, with letters and numbers only</small>
+</div>
+  </div>
+
+  <!-- Save Button (Disabled if Form is Invalid) -->
+  <button type="submit" [disabled]="userForm.invalid">Save</button>
+</form>
